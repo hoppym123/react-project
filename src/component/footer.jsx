@@ -93,7 +93,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-sm text-slate-400">
-              © 2026 RoofPro. All rights reserved.
+              © 2026 hoppy roof & aluminum. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
               <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Privacy Policy</a>
