@@ -64,10 +64,10 @@ export default function Home() {
             <div className="group rounded-2xl bg-slate-950/50 p-8 ring-1 ring-white/10 transition-all hover:ring-amber-200/50">
               <div className="text-4xl mb-4">🏢</div>
               <h3 className="text-xl font-semibold text-white group-hover:text-amber-200 transition-colors mb-3">
-                Aluminum Siding
+                Aluminum Sliding
               </h3>
               <p className="text-slate-400 leading-6">
-                Custom aluminum siding installation for modern aesthetics and durability.
+                Custom aluminum sliding door installation for modern aesthetics and durability.
               </p>
             </div>
           </div>
@@ -94,8 +94,8 @@ export default function Home() {
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Experience</p>
-                <p className="mt-3 text-3xl font-semibold text-white">12+</p>
-                <p className="mt-2 text-sm text-slate-400">years in roofing</p>
+                <p className="mt-3 text-3xl font-semibold text-white">09+</p>
+                <p className="mt-2 text-sm text-slate-400">years in roofing and aluminum</p>
               </div>
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Projects</p>
@@ -127,7 +127,7 @@ export default function Home() {
               Get Free Quote
             </button>
             <button className="text-sm font-semibold leading-6 text-slate-100 hover:text-amber-200 transition-colors cursor-pointer">
-              Call (555) 123-ROOF
+              Call :+2349014592261
             </button>
           </div>
         </div>

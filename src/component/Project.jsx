@@ -1,45 +1,49 @@
+import { useNavigate } from 'react-router-dom'
+import completeRoof from '../assets/completeRoof.jpeg'
+import screenshot1 from '../assets/Screenshot 2026-04-28 130941.png'
 export default function Project() {
+  const navigate = useNavigate()
   const projects = [
     {
       id: 1,
-      title: "Modern Residential Roof Replacement",
-      description: "Complete roof replacement using premium asphalt shingles with architectural detailing for a contemporary home.",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop",
+      title: "Modern Residential Roof",
+      description: "Complete roof  using gerald stone coated roofing sheets detailing for a contemporary home.",
+      image: completeRoof,
       category: "Residential"
     },
     {
       id: 2,
       title: "Commercial Building Aluminum Siding",
       description: "Full aluminum siding installation for a commercial property, providing durability and modern aesthetics.",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop",
+      image: screenshot1,
       category: "Commercial"
     },
     {
       id: 3,
       title: "Historic Home Restoration",
       description: "Careful restoration of a historic home's roof, preserving architectural integrity while ensuring modern protection.",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+      image:"https://www.vecteezy.com/photo/58079303-rusted-corrugated-metal-roofing-shows-significant-decay" ,
       category: "Restoration"
     },
     {
       id: 4,
       title: "Aluminum Window Installation",
       description: "Custom aluminum window frames and installation for improved energy efficiency and contemporary design.",
-      image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=400&h=300&fit=crop",
+      image: screenshot1,
       category: "Windows"
     },
     {
       id: 5,
       title: "Flat Roof System",
       description: "Professional installation of a flat roof system with proper drainage and waterproofing for commercial buildings.",
-      image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&h=300&fit=crop",
+      image: screenshot1,
       category: "Commercial"
     },
     {
       id: 6,
       title: "Aluminum Patio Cover",
       description: "Custom aluminum patio cover installation providing shade and protection for outdoor living spaces.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
+      image: screenshot1,
       category: "Outdoor"
     }
   ]
@@ -83,11 +87,13 @@ export default function Project() {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200 transition-colors">
+          <button onClick={() => navigate('/project')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors cursor-pointer">
             View All Projects
           </button>
         </div>
       </div>
-    </section>
-  )
-}
+    </section> 
+        )
+      }
+      
+   
