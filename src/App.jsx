@@ -6,6 +6,7 @@ import Project from './component/Project'
 import About from './component/About'
 import Services from './component/Services'
 import Contact from './component/Contact'
+import Warranty from './component/Waranty'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/projects" element={<Project />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route   path="/warranty" element={<Warranty />} />
         </Routes>
         <Footer />
       </div>

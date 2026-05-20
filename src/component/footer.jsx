@@ -1,5 +1,8 @@
+
+
 export default function Footer() {
   return (
+      
     <footer className="bg-slate-950 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-4">
@@ -32,6 +35,12 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/2349014592261" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-200 transition-colors">
+                <span className="sr-only">WhatsApp</span>
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.52 3.478A11.902 11.902 0 0012.009 0C5.373 0 .125 5.248.125 11.884c0 2.09.545 4.138 1.582 5.94L0 24l6.34-1.655a11.846 11.846 0 005.67 1.444h.005c6.637 0 11.884-5.248 11.884-11.884 0-3.175-1.238-6.163-3.605-8.426zm-8.51 18.14a10.69 10.69 0 01-5.436-1.443l-.387-.231-3.766.982.999-3.666-.252-.387a10.597 10.597 0 01-1.605-5.76c0-5.84 4.75-10.59 10.588-10.59 2.828 0 5.48 1.103 7.48 3.107a10.52 10.52 0 013.115 7.484c0 5.84-4.753 10.59-10.586 10.59zm5.837-7.61c-.316-.158-1.873-.923-2.164-1.029-.29-.106-.5-.158-.71.158-.21.316-.812 1.03-.996 1.24-.183.21-.366.236-.682.079-.316-.158-1.333-.49-2.538-1.566-.938-.838-1.57-1.873-1.753-2.188-.183-.316-.02-.486.14-.644.144-.144.316-.378.473-.566.158-.188.21-.316.316-.526.106-.21.053-.395-.026-.553-.079-.158-.71-1.71-.973-2.34-.256-.616-.517-.533-.71-.544-.183-.01-.395-.01-.605-.01-.21 0-.553.079-.842.395-.29.316-1.11 1.084-1.11 2.637 0 1.553 1.137 3.056 1.295 3.264.158.21 2.24 3.412 5.43 4.785.76.328 1.35.523 1.813.668.762.24 1.456.206 2.005.125.612-.09 1.873-.765 2.138-1.503.265-.737.265-1.37.184-1.503-.079-.132-.29-.21-.605-.37z" />
                 </svg>
               </a>
             </div>
@@ -98,14 +107,13 @@ export default function Footer() {
             <div className="flex space-x-6 mt-4 sm:mt-0">
               <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Privacy Policy</a>
               <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Terms of Service</a>
-              <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Sitemap</a>
+              <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">top</a>
+  
+            </div>       
             </div>
-            <div className="flex mt-4 sm:mt-0">
-              <a href="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">top</a>       
             </div>
           </div>
-        </div>
-      </div>
     </footer>
+    
   )
 }

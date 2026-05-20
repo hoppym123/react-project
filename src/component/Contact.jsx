@@ -29,16 +29,17 @@ export default function Contactus() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Phone</p>
-                <p className="mt-3 text-xl font-semibold text-white">(555) 832-2041</p>
+                <p className="mt-3 text-xl font-semibold text-white">+2349014592261</p>
               </div>
               <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Email</p>
-                <p className="mt-3 text-xl font-semibold text-white">hello@hoppyroof.com</p>
+                <p className="mt-3 text-xl font-semibold text-white">yayaafeez197@gmail.com</p>
               </div>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30">
+          <form action="https://formspree.io/f/mlgorqej"
+              method="post" noValidate aria-label='contact form'  onSubmit={handleSubmit} className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-200">Name</label>
               <input
@@ -88,4 +89,4 @@ export default function Contactus() {
       </div>
     </section>
   )
-}
+} 

@@ -22,7 +22,7 @@ export default function Project() {
       id: 3,
       title: "Historic Home Restoration",
       description: "Careful restoration of a historic home's roof, preserving architectural integrity while ensuring modern protection.",
-      image:"https://www.vecteezy.com/photo/58079303-rusted-corrugated-metal-roofing-shows-significant-decay" ,
+      image: screenshot1,
       category: "Restoration"
     },
     {
