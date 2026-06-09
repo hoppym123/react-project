@@ -1,42 +1,48 @@
 ﻿import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import image1 from '../assets/image.png'
+import geraldProgress from '../assets/Gerald in progress.jpeg'
+import casementWindow from '../assets/casement window.jpeg'
+import completeRoof from '../assets/completeRoof.jpeg'
+import tDesign from '../assets/t design casement.jpeg'
+import roofingProgress from '../assets/roofing in progress.jpeg'
 
 const images = [
   {
-    src: 'src/assets/image.png',
+    src: image1,
     alt: 'gerald roofing',
-    title: 'gerald roofs',
+    title: 'Gerald Roofs',
     caption: 'Premium roofing materials and modern finish.',
   },
   {
-    src: 'src/assets/Gerald in progress.jpeg',   
+    src: geraldProgress,
     alt: 'Construction workers installing roofing',
     title: 'Expert Installation',
     caption: 'Professional craftsmanship from start to finish.',
   },
   {
-    src: 'src/assets/casement window.jpeg',
+    src: casementWindow,
     alt: 'Aluminum casement window installation',
-    title: 'casement aluminum window',
-    caption: 'Stylish, durable aluminum windows  for your property.',
+    title: 'Casement Aluminum Window',
+    caption: 'Stylish, durable aluminum windows for your property.',
   },
   {
-    src: 'src/assets/completeRoof.jpeg',
+    src: completeRoof,
     alt: 'Aerial view of a completed roof',
     title: 'Roofing Projects',
     caption: 'Completed projects that showcase quality and durability.',
   },
   {
-    src: 'src/assets/src/t design casement.jpeg',
-    alt: 'windiws with t design aluminum frames',
-    title: ' T design casement window',
-    caption: 'variant options available .',
+    src: tDesign,
+    alt: 'Windows with t-design aluminum frames',
+    title: 'T Design Casement Window',
+    caption: 'Variant options available.',
   },
   {
-    src: 'src/assets/night finish.jpeg',                
-    alt: 'Night shot of a house roof and landscape lighting',
-    title: 'Night Finish',
-    caption: 'Quality roofing work visible day or night.',
+    src: roofingProgress,
+    alt: 'Roofing work in progress',
+    title: 'Roofing in Progress',
+    caption: 'Durable roofing installation performed by the team.',
   },
 ]
 
