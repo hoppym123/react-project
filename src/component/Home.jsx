@@ -1,35 +1,94 @@
 import { useNavigate } from 'react-router-dom'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+const heroSlides = [
+  {
+    title: 'Premium Roofing & Aluminum Services',
+    subtitle: 'Built for durability, finished for style.',
+    description: 'Transform your property with expert roofing and aluminum solutions designed for lasting protection.',
+    image: 'src/assets/completeRoof.jpeg',
+    buttonText: 'Get Free Quote',
+    buttonPath: '/contact',
+  },
+  {
+    title: 'Quality Roof Repairs & Replacements',
+    subtitle: 'Fast response, precise results.',
+    description: 'From leak repair to full replacement, we deliver premium workmanship and long-term peace of mind.',
+    image: 'src/assets/casement window.jpeg',
+    buttonText: 'View Services',
+    buttonPath: '/services',
+  },
+  {
+    title: 'Modern Aluminum Finishes',
+    subtitle: 'Stylish exteriors that perform.',
+    description: 'Upgrade your home with custom aluminum work that enhances beauty and reliability.',
+    image: 'src/assets/hand railings.jpeg',
+    buttonText: 'Open Gallery',
+    buttonPath: '/gallery',
+  },
+]
 
 export default function Home() {
   const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-24 text-center text-slate-100 sm:px-16 sm:py-32">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            Premium Roofing & Aluminum
-            <span className="block bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">
-              Solutions
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-            Transform your property with our expert roofing and aluminum services. We deliver quality craftsmanship,
-            durable materials, and exceptional results that stand the test of time.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <button onClick={() => navigate('/contact')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200 transition-colors cursor-pointer">
-              Get Free Quote
-            </button>
-            <button onClick={() => navigate('/projects')} className="text-sm font-semibold leading-6 text-slate-100 hover:text-amber-200 transition-colors cursor-pointer">
-              View Our Work <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-500/10"></div>
-        </div>
+      <section className="relative overflow-hidden bg-slate-950 text-slate-100">
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 6000, disableOnInteraction: false }}
+          loop
+          className="min-h-[70vh]"
+        >
+          {heroSlides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative flex min-h-[70vh] items-center justify-center bg-slate-950">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="absolute inset-0 h-full w-full object-cover opacity-70"
+                />
+                <div className="absolute inset-0 bg-slate-950/60" />
+                <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-24 text-center sm:px-16 lg:px-24">
+                  <p className="rounded-full bg-amber-200/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-amber-100 ring-1 ring-white/10">
+                    Trusted Roofing & Aluminum
+                  </p>
+                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    {slide.title}
+                  </h1>
+                  <p className="max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
+                    {slide.subtitle}
+                  </p>
+                  <p className="max-w-3xl text-base leading-7 text-slate-300">
+                    {slide.description}
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <button
+                      type="button"
+                      onClick={() => navigate(slide.buttonPath)}
+                      className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors"
+                    >
+                      {slide.buttonText}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => navigate('/projects')}
+                      className="rounded-full border border-white/15 bg-white/10 px-8 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                    >
+                      View Projects
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
       {/* Services Preview */}
@@ -90,6 +149,14 @@ export default function Home() {
               <p className="mt-6 max-w-xl text-slate-400 leading-8">
                 Our team specializes in high-quality roofing and aluminum solutions that balance durability, style, and long-term value.
               </p>
+              <div className="mt-8 flex flex-wrap justify-start gap-4">
+                <button onClick={() => navigate('/about')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-950 shadow-sm hover:bg-amber-300 transition-colors">
+                  Learn More About Us
+                </button>
+                <button onClick={() => navigate('/contact')} className="rounded-full border border-white/15 bg-white/10 px-8 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
+                  Contact Us
+                </button>
+              </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
@@ -122,12 +189,15 @@ export default function Home() {
             Get a free consultation and quote for your roofing or aluminum project.
             Quality craftsmanship guaranteed.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <button onClick={() => navigate('/contact')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors cursor-pointer">
               Get Free Quote
             </button>
-            <button className="text-sm font-semibold leading-6 text-slate-100 hover:text-amber-200 transition-colors cursor-pointer">
-              Call :+2349014592261
+            <button onClick={() => navigate('/services')} className="rounded-full border border-white/15 bg-white/10 px-8 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors cursor-pointer">
+              Explore Services
+            </button>
+            <button onClick={() => navigate('/gallery')} className="rounded-full bg-amber-200/90 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors cursor-pointer">
+              Open Gallery
             </button>
           </div>
         </div>

@@ -42,6 +42,9 @@ function navBar() {
     <Link to="/projects" className="hover:bg-amber-700 text-white font-bold py-2 px-3 lg:px-4 italic rounded transition-colors text-sm lg:text-base">
       Project
     </Link>
+    <Link to="/gallery" className="hover:bg-amber-700 text-white font-bold py-2 px-3 lg:px-4 italic rounded transition-colors text-sm lg:text-base">
+      Gallery
+    </Link>
     <Link to="/about" className="hover:bg-amber-700 text-white font-bold py-2 px-3 lg:px-4 italic rounded transition-colors text-sm lg:text-base">
       About
     </Link>
@@ -72,6 +75,9 @@ function navBar() {
       </Link>
       <Link to="/projects" onClick={() => setIsOpen(false)} className="hover:bg-amber-700 text-white font-bold py-2 px-4 italic rounded transition-colors">
         Project
+      </Link>
+      <Link to="/gallery" onClick={() => setIsOpen(false)} className="hover:bg-amber-700 text-white font-bold py-2 px-4 italic rounded transition-colors">
+        Gallery
       </Link>
       <Link to="/about" onClick={() => setIsOpen(false)} className="hover:bg-amber-700 text-white font-bold py-2 px-4 italic rounded transition-colors">
         About

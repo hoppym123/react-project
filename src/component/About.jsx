@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function About() {
+  const navigate = useNavigate()
   return (
     <section id="about" className="bg-slate-950 px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-7xl">
@@ -33,6 +36,14 @@ export default function About() {
             <p className="mt-4 text-slate-300 leading-7">
               We work with every client to select the right materials, stay on schedule, and deliver a finish that improves both function and curb appeal.
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <button onClick={() => navigate('/projects')} className="rounded-full bg-amber-200 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-amber-300 transition-colors">
+                View Projects
+              </button>
+              <button onClick={() => navigate('/contact')} className="rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
+                Contact Us
+              </button>
+            </div>
           </div>
         </div>
       </div>

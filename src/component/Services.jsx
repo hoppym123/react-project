@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function Services() {
+  const navigate = useNavigate()
   const services = [
     {
       id: 1,
@@ -74,8 +77,8 @@ export default function Services() {
                 ))}
               </ul>
               <div className="mt-6">
-                <button className="text-sm font-semibold text-amber-200 hover:text-amber-100 transition-colors">
-                  Learn More →
+                <button onClick={() => navigate('/contact')} className="text-sm font-semibold text-amber-200 hover:text-amber-100 transition-colors">
+                  Request Quote →
                 </button>
               </div>
             </div>
@@ -88,7 +91,7 @@ export default function Services() {
             <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
               Every project is unique. Contact us for a free consultation and personalized quote tailored to your specific needs.
             </p>
-            <button className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200 transition-colors">
+            <button onClick={() => navigate('/contact')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200 transition-colors">
               Get Free Consultation
             </button>
           </div>

@@ -87,8 +87,8 @@ export default function Project() {
         </div>
 
         <div className="mt-16 text-center">
-          <button onClick={() => navigate('/project')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors cursor-pointer">
-            View All Projects
+          <button onClick={() => navigate('/contact')} className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors cursor-pointer">
+            Request a Quote
           </button>
         </div>
       </div>

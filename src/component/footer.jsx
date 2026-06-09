@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -63,11 +63,11 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#about" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">About Us</a></li>
-              <li><a href="#projects" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Our Projects</a></li>
-              <li><a href="#contact" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Contact Us</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Free Quote</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Warranty Info</a></li>
+              <li><Link to="/about" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">About Us</Link></li>
+              <li><Link to="/projects" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Our Projects</Link></li>
+              <li><Link to="/contact" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Contact Us</Link></li>
+              <li><Link to="/contact" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Free Quote</Link></li>
+              <li><Link to="/warranty" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">Warranty</Link></li>
               <li><a href="#" className="text-slate-400 hover:text-amber-200 transition-colors text-sm">FAQ</a></li>
             </ul>
           </div>
