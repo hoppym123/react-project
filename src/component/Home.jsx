@@ -4,13 +4,22 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import completeRoof from '../assets/completeRoof.jpeg'
+import casementWindow from '../assets/casement window.jpeg'
+import handRailings from '../assets/hand railings.jpeg'
+import Services from './Services'
+import Project from './Project'
+import About from './About'
+import Contact from './Contact'
+import Warranty from './Waranty'
+import FullScreenGallery from './FullScreenGallery'
 
 const heroSlides = [
   {
     title: 'Premium Roofing & Aluminum Services',
     subtitle: 'Built for durability, finished for style.',
     description: 'Transform your property with expert roofing and aluminum solutions designed for lasting protection.',
-    image: 'src/assets/completeRoof.jpeg',
+    image: completeRoof,
     buttonText: 'Get Free Quote',
     buttonPath: '/contact',
   },
@@ -18,7 +27,7 @@ const heroSlides = [
     title: 'Quality Roof Repairs & Replacements',
     subtitle: 'Fast response, precise results.',
     description: 'From leak repair to full replacement, we deliver premium workmanship and long-term peace of mind.',
-    image: 'src/assets/casement window.jpeg',
+    image: casementWindow,
     buttonText: 'View Services',
     buttonPath: '/services',
   },
@@ -26,7 +35,7 @@ const heroSlides = [
     title: 'Modern Aluminum Finishes',
     subtitle: 'Stylish exteriors that perform.',
     description: 'Upgrade your home with custom aluminum work that enhances beauty and reliability.',
-    image: 'src/assets/hand railings.jpeg',
+    image: handRailings,
     buttonText: 'Open Gallery',
     buttonPath: '/gallery',
   },
@@ -52,9 +61,10 @@ export default function Home() {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="absolute inset-0 h-full w-full object-cover opacity-70"
+                  loading="eager"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-slate-950/60" />
+                <div className="absolute inset-0 bg-slate-950/20" />
                 <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-24 text-center sm:px-16 lg:px-24">
                   <p className="rounded-full bg-amber-200/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-amber-100 ring-1 ring-white/10">
                     Trusted Roofing & Aluminum
@@ -202,6 +212,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Services />
+      <Project />
+      <About />
+      <FullScreenGallery />
+      <Warranty />
+      <Contact />
     </div>
   )
 }

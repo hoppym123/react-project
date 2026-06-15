@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import image1 from '../assets/image.png'
 import geraldProgress from '../assets/Gerald in progress.jpeg'
@@ -52,37 +52,27 @@ export default function FullScreenGallery() {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const overlayRef = useRef(null)
 
-  const openImage = index => setActiveIndex(index)
-  const closeGallery = () => setActiveIndex(null)
-  const showPrevious = () => {
-    if (activeIndex === null) return
-    setActiveIndex((activeIndex + images.length - 1) % images.length)
-  }
-  const showNext = () => {
-    if (activeIndex === null) return
-    setActiveIndex((activeIndex + 1) % images.length)
-  }
-
-  const toggleFullscreen = async () => {
+  const toggleFullscreen = useCallback(async () => {
     if (!overlayRef.current) return
     if (document.fullscreenElement) {
       await document.exitFullscreen()
     } else {
       await overlayRef.current.requestFullscreen()
     }
-  }
+  }, [])
 
   useEffect(() => {
+    if (activeIndex === null) return
+
     const handleKeyDown = event => {
-      if (activeIndex === null) return
       if (event.key === 'Escape') {
-        closeGallery()
+        setActiveIndex(null)
       }
       if (event.key === 'ArrowRight') {
-        showNext()
+        setActiveIndex(prev => (prev + 1) % images.length)
       }
       if (event.key === 'ArrowLeft') {
-        showPrevious()
+        setActiveIndex(prev => (prev + images.length - 1) % images.length)
       }
       if (event.key === 'f' || event.key === 'F') {
         event.preventDefault()
@@ -92,7 +82,7 @@ export default function FullScreenGallery() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeIndex])
+  }, [toggleFullscreen, activeIndex])
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -133,7 +123,7 @@ export default function FullScreenGallery() {
             <button
               key={image.src}
               type="button"
-              onClick={() => openImage(index)}
+              onClick={() => setActiveIndex(index)}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-xl transition hover:-translate-y-1 hover:border-amber-200/30"
             >
               <img
@@ -155,10 +145,10 @@ export default function FullScreenGallery() {
           ref={overlayRef}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 px-4 py-6 sm:px-8"
         >
-          <div className="absolute inset-0 bg-black/80" onClick={closeGallery} aria-hidden="true" />
+          <div className="absolute inset-0 bg-black/80" onClick={() => setActiveIndex(null)} aria-hidden="true" />
           <button
             type="button"
-            onClick={closeGallery}
+            onClick={() => setActiveIndex(null)}
             className="absolute right-6 top-6 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-xl text-white transition hover:bg-white/15"
             aria-label="Close gallery"
           >
@@ -167,7 +157,7 @@ export default function FullScreenGallery() {
 
           <button
             type="button"
-            onClick={showPrevious}
+            onClick={() => setActiveIndex(prev => (prev + images.length - 1) % images.length)}
             className="absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-3xl text-white transition hover:bg-white/15"
             aria-label="Previous image"
           >
@@ -200,7 +190,7 @@ export default function FullScreenGallery() {
 
           <button
             type="button"
-            onClick={showNext}
+            onClick={() => setActiveIndex(prev => (prev + 1) % images.length)}
             className="absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-3xl text-white transition hover:bg-white/15"
             aria-label="Next image"
           >

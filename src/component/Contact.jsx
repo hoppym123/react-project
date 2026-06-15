@@ -37,11 +37,15 @@ export default function Contactus() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Phone</p>
-                <p className="mt-3 text-xl font-semibold text-white">+2349014592261</p>
+                <a href="tel:+2349014592261" className="mt-3 inline-block text-xl font-semibold text-white hover:text-amber-200 transition-colors cursor-pointer">
+                  +2349014592261
+                </a>
               </div>
               <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Email</p>
-                <p className="mt-3 text-xl font-semibold text-white">yayaafeez197@gmail.com</p>
+                <a href="mailto:yayaafeez197@gmail.com" className="mt-3 inline-block break-all text-xl font-semibold text-white hover:text-amber-200 transition-colors cursor-pointer max-w-xs">
+                  yayaafeez197@gmail.com
+                </a>
               </div>
             </div>
           </div>

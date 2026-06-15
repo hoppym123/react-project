@@ -15,7 +15,7 @@ export default function About() {
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Experience</p>
-                <p className="mt-3 text-3xl font-semibold text-white">08+</p>
+                <p className="mt-3 text-3xl font-semibold text-white">12+</p>
                 <p className="mt-2 text-sm text-slate-400">years in roofing and aluminum</p>
               </div>
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
@@ -25,7 +25,7 @@ export default function About() {
               </div>
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Warranty</p>
-                <p className="mt-3 text-3xl font-semibold text-white">10yr</p>
+                <p className="mt-3 text-3xl font-semibold text-white">05yr</p>
                 <p className="mt-2 text-sm text-slate-400">coverage on select systems</p>
               </div>
             </div>
