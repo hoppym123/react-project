@@ -7,12 +7,14 @@ import 'swiper/css/pagination'
 import completeRoof from '../assets/completeRoof.jpeg'
 import casementWindow from '../assets/casement window.jpeg'
 import handRailings from '../assets/hand railings.jpeg'
+import duplex1 from '../assets/duplex1.jpg'
 import Services from './Services'
 import Project from './Project'
 import About from './About'
 import Contact from './Contact'
 import Warranty from './Waranty'
 import FullScreenGallery from './FullScreenGallery'
+import FrequentlyAskedQuestions from './FrequentlyAskedQuestions'
 
 const heroSlides = [
   {
@@ -39,6 +41,23 @@ const heroSlides = [
     buttonText: 'Open Gallery',
     buttonPath: '/gallery',
   },
+ 
+  {
+    title: 'Premium Window Upgrades',
+    subtitle: 'Improve performance and curb appeal.',
+    description: 'Custom aluminum windows that blend durability with modern design.',
+    image: handRailings,
+    buttonText: 'Browse Windows',
+    buttonPath: '/services',
+  },
+   {
+    title: 'Complete Duplex Solutions',
+    subtitle: 'Roofing and aluminum for every property.',
+    description: 'Tailored solutions for duplex properties, ensuring both style and functionality.',
+    image: duplex1,
+    buttonText: 'Explore Duplex Services',
+    buttonPath: '/services',
+  },
 ]
 
 export default function Home() {
@@ -61,6 +80,7 @@ export default function Home() {
                 <img
                   src={slide.image}
                   alt={slide.title}
+                
                   loading="eager"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -81,10 +101,10 @@ export default function Home() {
                   <div className="flex flex-wrap justify-center gap-4">
                     <button
                       type="button"
-                      onClick={() => navigate(slide.buttonPath)}
+                      onClick={() => navigate(slide.buttonPath || '/contact')}
                       className="rounded-full bg-amber-200 px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-amber-300 transition-colors"
                     >
-                      {slide.buttonText}
+                      {slide.buttonText || 'Learn More'}
                     </button>
                     <button
                       type="button"
@@ -219,6 +239,7 @@ export default function Home() {
       <FullScreenGallery />
       <Warranty />
       <Contact />
+      <FrequentlyAskedQuestions />
     </div>
   )
 }

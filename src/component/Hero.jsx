@@ -22,7 +22,7 @@ export default function Hero() {
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div className="flex flex-col items-center">
-            <div className="text-3xl font-bold text-amber-200">500+</div>
+            <div className="text-3xl font-bold text-amber-200">200+</div>
             <div className="text-sm text-slate-400">Projects Completed</div>
           </div>
           <div className="flex flex-col items-center">

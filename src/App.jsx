@@ -1,4 +1,7 @@
 ﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Navbar from './component/Navbar'
 import Home from './component/Home'
 import Footer from './component/footer'
@@ -10,6 +13,14 @@ import Warranty from './component/Waranty'
 import FullScreenGallery from './component/FullScreenGallery'
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out-quad',
+    })
+  }, [])
   return (
     <Router>
       <div className="min-h-screen bg-[#05070f] text-slate-100">

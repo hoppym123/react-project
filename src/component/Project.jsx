@@ -51,7 +51,7 @@ export default function Project() {
   return (
     <section id="projects" className="bg-slate-950 px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <p className="text-sm uppercase tracking-[0.35em] text-amber-200">Our work</p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Featured Projects</h2>
           <p className="mx-auto mt-6 max-w-2xl text-slate-400 leading-8">
@@ -60,8 +60,8 @@ export default function Project() {
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <div key={project.id} className="group relative overflow-hidden rounded-2xl bg-slate-900/50 ring-1 ring-white/10 transition-all hover:ring-amber-200/50">
+          {projects.map((project, index) => (
+            <div key={project.id} className="group relative overflow-hidden rounded-2xl bg-slate-900/50 ring-1 ring-white/10 transition-all hover:ring-amber-200/50" data-aos="flip-left" data-aos-delay={index * 100}>
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}

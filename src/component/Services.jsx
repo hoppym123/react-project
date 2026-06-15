@@ -50,7 +50,7 @@ export default function Services() {
   return (
     <section id="services" className="bg-slate-900 px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <p className="text-sm uppercase tracking-[0.35em] text-amber-200">Our services</p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Complete Roofing & Aluminum Solutions</h2>
           <p className="mx-auto mt-6 max-w-2xl text-slate-400 leading-8">
@@ -59,8 +59,8 @@ export default function Services() {
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div key={service.id} className="group relative overflow-hidden rounded-2xl bg-slate-950/50 p-8 ring-1 ring-white/10 transition-all hover:ring-amber-200/50 hover:bg-slate-950/80">
+          {services.map((service, index) => (
+            <div key={service.id} className="group relative overflow-hidden rounded-2xl bg-slate-950/50 p-8 ring-1 ring-white/10 transition-all hover:ring-amber-200/50 hover:bg-slate-950/80" data-aos="zoom-in" data-aos-delay={index * 100}>
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold text-white group-hover:text-amber-200 transition-colors mb-3">
                 {service.title}

@@ -1,11 +1,11 @@
 ﻿import { useEffect, useRef, useState, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
 import image1 from '../assets/image.png'
 import geraldProgress from '../assets/Gerald in progress.jpeg'
 import casementWindow from '../assets/casement window.jpeg'
 import completeRoof from '../assets/completeRoof.jpeg'
 import tDesign from '../assets/t design casement.jpeg'
 import roofingProgress from '../assets/roofing in progress.jpeg'
+
 
 const images = [
   {
@@ -47,7 +47,6 @@ const images = [
 ]
 
 export default function FullScreenGallery() {
-  const navigate = useNavigate()
   const [activeIndex, setActiveIndex] = useState(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const overlayRef = useRef(null)
@@ -96,27 +95,10 @@ export default function FullScreenGallery() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 px-6 py-16 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-amber-200">Project Gallery</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-             Photo Gallery
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-400">
-            Browse our premium roofing and aluminum work with a fullscreen viewing experience.
-            Click any image to expand it, then use arrow keys or the controls to navigate.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <button onClick={() => navigate('/projects')} className="rounded-full bg-amber-200 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-amber-300 transition-colors">
-              View Projects
-            </button>
-            <button onClick={() => navigate('/services')} className="rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-              View Services
-            </button>
-            <button onClick={() => navigate('/contact')} className="rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-              Contact Us
-            </button>
+        <div className="mb-12 text-center" data-aos="fade-up">
+          <p className="text-xl uppercase tracking-[0.35em] text-amber-200">Project Gallery</p>
+      
           </div>
-        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
@@ -125,6 +107,8 @@ export default function FullScreenGallery() {
               type="button"
               onClick={() => setActiveIndex(index)}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-xl transition hover:-translate-y-1 hover:border-amber-200/30"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <img
                 src={image.src}

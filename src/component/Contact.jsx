@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 export default function Contactus() {
-  const navigate = useNavigate()
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
 
   const handleChange = (event) => {
@@ -13,35 +11,21 @@ export default function Contactus() {
   return (
     <section id="contact-us" className="bg-[#070b18] px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 flex flex-wrap justify-center gap-4 text-center">
-          <button onClick={() => navigate('/')} className="rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-            Home
-          </button>
-          <button onClick={() => navigate('/projects')} className="rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-            Projects
-          </button>
-          <button onClick={() => navigate('/services')} className="rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-            Services
-          </button>
-          <button onClick={() => navigate('/gallery')} className="rounded-full border border-white/10 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
-            Gallery
-          </button>
-        </div>
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_0.95fr] lg:items-center">
-          <div className="space-y-6 rounded-[2rem] bg-slate-900/95 p-10 ring-1 ring-white/10 shadow-2xl shadow-black/30">
+      <div className="grid gap-10 lg:grid-cols-[0.95fr_0.95fr] lg:items-center">
+          <div className="space-y-6 rounded-[2rem] bg-slate-900/95 p-10 ring-1 ring-white/10 shadow-2xl shadow-black/30" data-aos="fade-right">
             <p className="text-sm uppercase tracking-[0.35em] text-amber-200">Contact us</p>
             <h2 className="text-4xl font-semibold tracking-tight text-white">Ready to start your next project?</h2>
             <p className="text-slate-400 leading-7">
               Send a message and we&#39;ll get back to you with a free estimate, timeline, and material recommendations.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
+              <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10" data-aos="zoom-in">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Phone</p>
                 <a href="tel:+2349014592261" className="mt-3 inline-block text-xl font-semibold text-white hover:text-amber-200 transition-colors cursor-pointer">
                   +2349014592261
                 </a>
               </div>
-              <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10">
+              <div className="rounded-3xl bg-slate-950/80 p-6 ring-1 ring-white/10" data-aos="zoom-in" data-aos-delay="100">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Email</p>
                 <a href="mailto:yayaafeez197@gmail.com" className="mt-3 inline-block break-all text-xl font-semibold text-white hover:text-amber-200 transition-colors cursor-pointer max-w-xs">
                   yayaafeez197@gmail.com
@@ -51,7 +35,7 @@ export default function Contactus() {
           </div>
 
           <form action="https://formspree.io/f/mlgorqej"
-              method="post" noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30">
+              method="post" noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30" data-aos="fade-left">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-200">Name</label>
               <input
