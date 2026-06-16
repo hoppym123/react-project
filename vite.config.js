@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 /**
  * Vite Configuration
- * Production-ready configuration with optimization and compatibility fixes
+ * Fixed for production compatibility using built-in esbuild
  */
 export default defineConfig({
   plugins: [tailwindcss(), react()],
@@ -16,18 +16,14 @@ export default defineConfig({
     open: true,
   },
 
-  // Build optimization
+  // Built-in cleaner tool settings (Replaces Terser)
+  esbuild: {
+    drop: ['console', 'debugger'], // Safely deletes console logs on deployment
+  },
+
+  // Build optimization rules
   build: {
-    // Fixed: Bypasses the lightningcss target compilation restriction
     target: 'esnext',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    // Removed custom manualChunks function to allow Vite to bundle dependencies safely
     sourcemap: false,
     chunkSizeWarningLimit: 1000,
   },
