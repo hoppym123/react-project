@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const faqs = [
   {
@@ -33,12 +33,12 @@ const faqs = [
     q: 'What should I expect during the project?',
     a: 'Expect a professional team, daily cleanup, project supervision, and clear communication. We protect landscaping and address safety on-site throughout the project.',
   },
-]
+];
 
 export default function FrequentlyAskedQuestions() {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = index => setOpenIndex(prev => (prev === index ? null : index))
+  const toggle = index => setOpenIndex(prev => (prev === index ? null : index));
 
   return (
     <section id="faq" className="bg-slate-900 px-6 py-20 text-slate-100">
@@ -70,5 +70,5 @@ export default function FrequentlyAskedQuestions() {
         </div>
       </div>
     </section>
-  )
+  );
 }

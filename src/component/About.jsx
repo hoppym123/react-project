@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section id="about" className="bg-slate-950 px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-7xl">
@@ -25,7 +25,7 @@ export default function About() {
               </div>
               <div className="rounded-3xl bg-slate-900/80 p-6 ring-1 ring-white/10" data-aos="zoom-in" data-aos-delay="200">
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Warranty</p>
-                <p className="mt-3 text-3xl font-semibold text-white">05yr</p>
+                <p className="mt-3 text-3xl font-semibold text-white">5yr</p>
                 <p className="mt-2 text-sm text-slate-400">coverage on select systems</p>
               </div>
             </div>
@@ -48,5 +48,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }

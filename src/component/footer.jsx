@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -104,10 +104,10 @@ export default function Footer() {
               <Link to="/terms-of-service" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Terms of Service</Link>
               <Link to="#" className="text-sm text-slate-400 hover:text-amber-200 transition-colors">Top</Link>
             </div>       
-            </div>
-            </div>
           </div>
+        </div>
+      </div>
     </footer>
     
-  )
+  );
 }

@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function Contactus() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (event) => {
-    const { id, value } = event.target
-    setFormData((prev) => ({ ...prev, [id]: value }))
-  }
+    const { id, value } = event.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
   return (
     <section id="contact-us" className="bg-[#070b18] px-6 py-20 text-slate-100">
       <div className="mx-auto max-w-6xl">
-      <div className="grid gap-10 lg:grid-cols-[0.95fr_0.95fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_0.95fr] lg:items-center">
           <div className="space-y-6 rounded-[2rem] bg-slate-900/95 p-10 ring-1 ring-white/10 shadow-2xl shadow-black/30" data-aos="fade-right">
             <p className="text-sm uppercase tracking-[0.35em] text-amber-200">Contact us</p>
             <h2 className="text-4xl font-semibold tracking-tight text-white">Ready to start your next project?</h2>
@@ -35,7 +35,7 @@ export default function Contactus() {
           </div>
 
           <form action="https://formspree.io/f/mlgorqej"
-              method="post" noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30" data-aos="fade-left">
+            method="post" noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30" data-aos="fade-left">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-200">Name</label>
               <input
@@ -82,5 +82,5 @@ export default function Contactus() {
         </div>
       </div>
     </section>
-  )
+  );
 } 

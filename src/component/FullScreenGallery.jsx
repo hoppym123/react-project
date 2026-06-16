@@ -1,10 +1,10 @@
-﻿import { useEffect, useRef, useState, useCallback } from 'react'
-import image1 from '../assets/image.png'
-import geraldProgress from '../assets/Gerald in progress.jpeg'
-import casementWindow from '../assets/casement window.jpeg'
-import completeRoof from '../assets/completeRoof.jpeg'
-import tDesign from '../assets/t design casement.jpeg'
-import roofingProgress from '../assets/roofing in progress.jpeg'
+﻿import { useEffect, useRef, useState, useCallback } from 'react';
+import image1 from '../assets/image.png';
+import geraldProgress from '../assets/Gerald in progress.jpeg';
+import casementWindow from '../assets/casement window.jpeg';
+import completeRoof from '../assets/completeRoof.jpeg';
+import tDesign from '../assets/t design casement.jpeg';
+import roofingProgress from '../assets/roofing in progress.jpeg';
 
 
 const images = [
@@ -44,53 +44,53 @@ const images = [
     title: 'Roofing in Progress',
     caption: 'Durable roofing installation performed by the team.',
   },
-]
+];
 
 export default function FullScreenGallery() {
-  const [activeIndex, setActiveIndex] = useState(null)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const overlayRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const overlayRef = useRef(null);
 
   const toggleFullscreen = useCallback(async () => {
-    if (!overlayRef.current) return
+    if (!overlayRef.current) return;
     if (document.fullscreenElement) {
-      await document.exitFullscreen()
+      await document.exitFullscreen();
     } else {
-      await overlayRef.current.requestFullscreen()
+      await overlayRef.current.requestFullscreen();
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    if (activeIndex === null) return
+    if (activeIndex === null) return;
 
     const handleKeyDown = event => {
       if (event.key === 'Escape') {
-        setActiveIndex(null)
+        setActiveIndex(null);
       }
       if (event.key === 'ArrowRight') {
-        setActiveIndex(prev => (prev + 1) % images.length)
+        setActiveIndex(prev => (prev + 1) % images.length);
       }
       if (event.key === 'ArrowLeft') {
-        setActiveIndex(prev => (prev + images.length - 1) % images.length)
+        setActiveIndex(prev => (prev + images.length - 1) % images.length);
       }
       if (event.key === 'f' || event.key === 'F') {
-        event.preventDefault()
-        toggleFullscreen()
+        event.preventDefault();
+        toggleFullscreen();
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [toggleFullscreen, activeIndex])
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [toggleFullscreen, activeIndex]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(Boolean(document.fullscreenElement))
-    }
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  }, [])
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 px-6 py-16 sm:px-10 lg:px-16">
@@ -98,7 +98,7 @@ export default function FullScreenGallery() {
         <div className="mb-12 text-center" data-aos="fade-up">
           <p className="text-xl uppercase tracking-[0.35em] text-amber-200">Project Gallery</p>
       
-          </div>
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
@@ -183,5 +183,5 @@ export default function FullScreenGallery() {
         </div>
       )}
     </div>
-  )
+  );
 }

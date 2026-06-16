@@ -39,5 +39,5 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-500/10"></div>
       </div>
     </section>
-  )
+  );
 }
