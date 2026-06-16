@@ -13,7 +13,6 @@ import FullScreenGallery from './component/FullScreenGallery';
 
 /**
  * Main App Component
- * Handles routing and global initialization
  */
 function App() {
   useAOS(AOS_CONFIG);
@@ -39,7 +38,6 @@ function App() {
                 </>
               } 
             />
-            {/* Add individual page paths below if needed for your navbar links */}
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Project />} />
             <Route path="/about" element={<About />} />
