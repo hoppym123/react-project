@@ -28,10 +28,17 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Separate third-party dependencies for better caching
-          'vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-libs': ['swiper', 'aos'],
+        // Safe function syntax for manual chunk splitting to fix the Vercel build crash
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor';
+            }
+            if (id.includes('swiper') || id.includes('aos')) {
+              return 'ui-libs';
+            }
+            return 'dependencies';
+          }
         },
       },
     },
@@ -49,4 +56,3 @@ export default defineConfig({
   // Environment variables prefix
   envPrefix: 'VITE_',
 });
-

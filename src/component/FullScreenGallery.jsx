@@ -6,7 +6,6 @@ import completeRoof from '../assets/completeRoof.jpeg';
 import tDesign from '../assets/t design casement.jpeg';
 import roofingProgress from '../assets/roofing in progress.jpeg';
 
-
 const images = [
   {
     src: image1,
@@ -46,6 +45,9 @@ const images = [
   },
 ];
 
+// 2000ms = 2 seconds per slide
+const AUTO_SLIDE_DURATION = 2000;
+
 export default function FullScreenGallery() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -60,18 +62,13 @@ export default function FullScreenGallery() {
     }
   }, []);
 
+  // Keyboard controls (Only Escape and Fullscreen shortcuts)
   useEffect(() => {
     if (activeIndex === null) return;
 
     const handleKeyDown = event => {
       if (event.key === 'Escape') {
         setActiveIndex(null);
-      }
-      if (event.key === 'ArrowRight') {
-        setActiveIndex(prev => (prev + 1) % images.length);
-      }
-      if (event.key === 'ArrowLeft') {
-        setActiveIndex(prev => (prev + images.length - 1) % images.length);
       }
       if (event.key === 'f' || event.key === 'F') {
         event.preventDefault();
@@ -83,6 +80,18 @@ export default function FullScreenGallery() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [toggleFullscreen, activeIndex]);
 
+  // Pure Auto-sliding loop
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    const slideTimer = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % images.length);
+    }, AUTO_SLIDE_DURATION);
+
+    return () => clearInterval(slideTimer);
+  }, [activeIndex]);
+
+  // Fullscreen change synchronization
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(Boolean(document.fullscreenElement));
@@ -97,9 +106,9 @@ export default function FullScreenGallery() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center" data-aos="fade-up">
           <p className="text-xl uppercase tracking-[0.35em] text-amber-200">Project Gallery</p>
-      
         </div>
 
+        {/* Thumbnails */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
             <button
@@ -124,62 +133,51 @@ export default function FullScreenGallery() {
         </div>
       </div>
 
+      {/* Lightbox Modal */}
       {activeIndex !== null && (
         <div
           ref={overlayRef}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 px-4 py-6 sm:px-8"
         >
+          {/* Click outside backdrop to close */}
           <div className="absolute inset-0 bg-black/80" onClick={() => setActiveIndex(null)} aria-hidden="true" />
+          
+          {/* Close Button */}
           <button
             type="button"
             onClick={() => setActiveIndex(null)}
-            className="absolute right-6 top-6 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-xl text-white transition hover:bg-white/15"
+            className="absolute right-6 top-6 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-xl text-white transition hover:bg-white/15 cursor-pointer"
             aria-label="Close gallery"
           >
             ×
           </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveIndex(prev => (prev + images.length - 1) % images.length)}
-            className="absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-3xl text-white transition hover:bg-white/15"
-            aria-label="Previous image"
-          >
-            ‹
-          </button>
-
+          {/* Active Image Frame */}
           <div className="relative z-10 w-full max-w-6xl">
             <img
               src={images[activeIndex].src}
               alt={images[activeIndex].alt}
-              className="mx-auto max-h-[80vh] w-full rounded-3xl object-contain shadow-2xl"
+              className="mx-auto max-h-[80vh] w-full rounded-3xl object-contain shadow-2xl transition-all duration-500 ease-in-out"
             />
+            
+            {/* Meta Control Panel */}
             <div className="mt-6 flex flex-col items-center gap-3 text-center text-slate-200 sm:flex-row sm:justify-between">
-              <div>
+              <div className="text-left">
                 <h3 className="text-xl font-semibold text-white">{images[activeIndex].title}</h3>
                 <p className="mt-2 text-sm text-slate-300">{images[activeIndex].caption}</p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-3 rounded-3xl bg-white/5 px-4 py-3 text-sm text-slate-300 shadow-inner border border-white/10">
-                <span>{activeIndex + 1} of {images.length}</span>
+                <span className="font-medium tracking-wide">{activeIndex + 1} of {images.length}</span>
                 <button
                   type="button"
                   onClick={toggleFullscreen}
-                  className="rounded-full bg-amber-200 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
+                  className="rounded-full bg-amber-200 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-300 cursor-pointer"
                 >
                   {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
                 </button>
               </div>
             </div>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setActiveIndex(prev => (prev + 1) % images.length)}
-            className="absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-3xl text-white transition hover:bg-white/15"
-            aria-label="Next image"
-          >
-            ›
-          </button>
         </div>
       )}
     </div>
