@@ -1,16 +1,16 @@
 ﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAOS } from './hooks/useAOS';
 import { AOS_CONFIG } from './constants/home';
-import Navbar from './component/Navbar';
-import Home from './component/Home';
-import Footer from './component/Footer';
-import Project from './component/Project';
-import About from './component/About';
-import Services from './component/Services';
-import Contact from './component/Contact';
-import Warranty from './component/Warranty';
-import FullScreenGallery from './component/FullScreenGallery';
-import Faq from './component/Faq';
+import Navbar from './Component/Navbar';
+import Home from './Component/Home';
+import Footer from './Component/Footer';
+import Project from './Component/Project';
+import About from './Component/About';
+import Services from './Component/Services';
+import Contact from './Component/Contact';
+import Warranty from './Component/Warranty';
+import FullScreenGallery from './Component/FullScreenGallery';
+import Faq from './Component/Faq';
 
 /**
  * Main App Component
