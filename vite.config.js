@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 /**
  * Vite Configuration
- * Production-ready configuration with optimization and caching strategies
+ * Production-ready configuration with optimization and compatibility fixes
  */
 export default defineConfig({
   plugins: [tailwindcss(), react()],
@@ -18,7 +18,8 @@ export default defineConfig({
 
   // Build optimization
   build: {
-    target: 'ES2020',
+    // Fixed: Bypasses the lightningcss target compilation restriction
+    target: 'esnext',
     minify: 'terser',
     terserOptions: {
       compress: {
@@ -26,25 +27,8 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
-    rollupOptions: {
-      output: {
-        // Safe function syntax for manual chunk splitting to fix the Vercel build crash
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'vendor';
-            }
-            if (id.includes('swiper') || id.includes('aos')) {
-              return 'ui-libs';
-            }
-            return 'dependencies';
-          }
-        },
-      },
-    },
-    // Generate source maps for production debugging
+    // Removed custom manualChunks function to allow Vite to bundle dependencies safely
     sourcemap: false,
-    // Chunk size warnings threshold (in kB)
     chunkSizeWarningLimit: 1000,
   },
 
