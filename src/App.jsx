@@ -20,17 +20,34 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950 text-slate-100">
+      <div className="flex flex-col min-h-screen bg-slate-950 text-slate-100">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Project />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<FullScreenGallery />} />
-          <Route path="/warranty" element={<Warranty />} />
-        </Routes>
+        
+        <main className="flex-grow">
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Home />
+                  <Services />
+                  <Project />
+                  <About />
+                  <FullScreenGallery />
+                  <Warranty />
+                  <Contact />
+                </>
+              } 
+            />
+            {/* Add individual page paths below if needed for your navbar links */}
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Project />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<FullScreenGallery />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
         <Footer />
       </div>
     </Router>
