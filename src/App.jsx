@@ -10,10 +10,11 @@ import Services from './component/Services';
 import Contact from './component/Contact';
 import Warranty from './component/Warranty';
 import FullScreenGallery from './component/FullScreenGallery';
-import Faq from './component/Faq';
+// Points to the actual file name "FrequentlyAskedQuestions.jsx" but grabs the inner component name safely
+import FrequentlyAskedQuestions from './component/FrequentlyAskedQuestions';
 
 /**
- * Main App Component
+ * Main App Component 
  */
 function App() {
   useAOS(AOS_CONFIG);
@@ -36,7 +37,7 @@ function App() {
                   <FullScreenGallery />
                   <Warranty />
                   <Contact />
-                  <Faq />
+                  <FrequentlyAskedQuestions />
                 </>
               } 
             />
