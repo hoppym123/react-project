@@ -10,6 +10,8 @@ import Services from './component/Services';
 import Contact from './component/Contact';
 import Warranty from './component/Warranty';
 import FullScreenGallery from './component/FullScreenGallery';
+// Fixed: Points to your actual filename "Faq.jsx" inside your folder structure
+import Faq from './component/Faq';
 
 /**
  * Main App Component
@@ -35,6 +37,7 @@ function App() {
                   <FullScreenGallery />
                   <Warranty />
                   <Contact />
+                  <Faq />
                 </>
               } 
             />
