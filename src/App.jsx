@@ -10,11 +10,11 @@ import Services from './component/Services';
 import Contact from './component/Contact';
 import Warranty from './component/Warranty';
 import FullScreenGallery from './component/FullScreenGallery';
-// Fixed: Points to your actual filename "Faq.jsx" inside your folder structure
 import Faq from './component/Faq';
 
 /**
  * Main App Component
+ * Handles routing and layout structures smoothly
  */
 function App() {
   useAOS(AOS_CONFIG);
@@ -41,6 +41,7 @@ function App() {
                 </>
               } 
             />
+            {/* Standalone subpages for navbar links */}
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Project />} />
             <Route path="/about" element={<About />} />
