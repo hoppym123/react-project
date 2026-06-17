@@ -9,7 +9,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
  * Enforces professional code quality standards and React best practices
  */
 export default defineConfig([
-  globalIgnores(['dist', 'node_modules', '.env*']),
+  globalIgnores(['dist', 'node_modules', 'server.js', '.env*']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [

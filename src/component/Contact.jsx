@@ -2,10 +2,36 @@ import { useState } from 'react';
 
 export default function Contactus() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
   const handleChange = (event) => {
     const { id, value } = event.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus({ loading: true, success: null, error: null });
+
+    try {
+      // Replace with your actual backend URL or local port (e.g., http://localhost:5000/api/contact)
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ loading: false, success: 'Message sent successfully!', error: null });
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      } else {
+        throw new Error('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus({ loading: false, success: null, error: err.message });
+    }
   };
 
   return (
@@ -34,8 +60,7 @@ export default function Contactus() {
             </div>
           </div>
 
-          <form action="https://formspree.io/f/mlgorqej"
-            method="post" noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30" data-aos="fade-left">
+          <form onSubmit={handleSubmit} noValidate aria-label='contact form' className="space-y-5 rounded-[2rem] border border-white/10 bg-slate-900/95 p-10 shadow-2xl shadow-black/30" data-aos="fade-left">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-200">Name</label>
               <input
@@ -75,12 +100,17 @@ export default function Contactus() {
                 className="mt-3 w-full rounded-3xl border border-white/10 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-300/20"
               />
             </div>
-            <button type="submit" className="inline-flex w-full items-center justify-center rounded-full bg-amber-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-amber-300 active:scale-95">
-              Send message
+
+            {/* Status Messages */}
+            {status.success && <p className="text-emerald-400 text-sm">{status.success}</p>}
+            {status.error && <p className="text-rose-400 text-sm">{status.error}</p>}
+
+            <button type="submit" disabled={status.loading} className="inline-flex w-full items-center justify-center rounded-full bg-amber-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-amber-300 active:scale-95 disabled:opacity-50">
+              {status.loading ? 'Sending...' : 'Send message'}
             </button>
           </form>
         </div>
       </div>
     </section>
   );
-} 
+}
