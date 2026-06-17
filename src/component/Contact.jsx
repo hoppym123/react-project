@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+// 1. Setup the dynamic API base URL right here
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Contactus() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ loading: false, success: null, error: null });
@@ -14,8 +17,8 @@ export default function Contactus() {
     setStatus({ loading: true, success: null, error: null });
 
     try {
-      // Replace with your actual backend URL or local port (e.g., http://localhost:5000/api/contact)
-      const response = await fetch('http://localhost:5000/api/contact', {
+      // 2. Use the dynamic variable here instead of the hardcoded string
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
