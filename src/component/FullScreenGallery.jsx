@@ -45,7 +45,6 @@ const images = [
   },
 ];
 
-// 2000ms = 2 seconds per slide
 const AUTO_SLIDE_DURATION = 2000;
 
 export default function FullScreenGallery() {
@@ -62,7 +61,7 @@ export default function FullScreenGallery() {
     }
   }, []);
 
-  // Keyboard controls (Only Escape and Fullscreen shortcuts)
+  // Keyboard controls
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -102,10 +101,14 @@ export default function FullScreenGallery() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 px-6 py-16 sm:px-10 lg:px-16">
+    /* ADDED: overflow-x-hidden to prevent accidental side scrolls from any layout shifting */
+    <div className="min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 px-6 py-16 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center" data-aos="fade-up">
-          <p className="text-xl uppercase tracking-[0.35em] text-amber-200">Project Gallery</p>
+          {/* UPDATED: Added responsive letter-spacing tracking-wider for mobile, md:tracking-[0.35em] for tablets/desktop */}
+          <p className="text-xl uppercase tracking-wider md:tracking-[0.35em] text-amber-200">
+            Project Gallery
+          </p>
         </div>
 
         {/* Thumbnails */}
