@@ -75,7 +75,7 @@ export default function Contactus() {
                 className="mt-3 w-full rounded-3xl border border-white/10 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-300/20"
               />
             </div>
-            <button type="submit" className="inline-flex w-full items-center justify-center rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-amber-300 active:scale-95">
+            <button type="submit" className="inline-flex w-full items-center justify-center rounded-full bg-amber-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-amber-300 active:scale-95">
               Send message
             </button>
           </form>

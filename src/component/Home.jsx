@@ -4,19 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { HERO_SLIDES } from '../constants/home';
-import Services from './Services';
-import Project from './Project';
-import About from './About';
-import Contact from './Contact';
-import Warranty from './Warranty';
-import FullScreenGallery from './FullScreenGallery';
-import FrequentlyAskedQuestions from './FrequentlyAskedQuestions';
 import { Button } from '../components/shared';
 
 /**
  * Home Page Component
- * Renders the sliding hero carousel, followed by full-page feature sections.
- * (Previews and mid-page Call-To-Action sections have been removed).
+ * Renders ONLY the sliding hero carousel.
+ * (All separate page sections have been removed to prevent duplication).
  */
 export default function Home() {
   const navigate = useNavigate();
@@ -39,15 +32,6 @@ export default function Home() {
           ))}
         </Swiper>
       </section>
-
-      {/* Full Page Layout Components */}
-      <Services />
-      <Project />
-      <About />
-      <FullScreenGallery />
-      <Warranty />
-      <Contact />
-      <FrequentlyAskedQuestions />
     </div>
   );
 }
