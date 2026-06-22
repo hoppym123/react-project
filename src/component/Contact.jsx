@@ -1,10 +1,9 @@
 import { useState } from 'react';
-
-// 1. Setup the dynamic API base URL right here
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+import { supabase } from '../SupabaseClients'; // 1. Import your working client here
 
 export default function Contactus() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  // 2. Updated key from 'message' to 'description' to match your Supabase column
+  const [formData, setFormData] = useState({ name: '', email: '', description: '' });
   const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
   const handleChange = (event) => {
@@ -17,23 +16,24 @@ export default function Contactus() {
     setStatus({ loading: true, success: null, error: null });
 
     try {
-      // 2. Use the dynamic variable here instead of the hardcoded string
-      const response = await fetch(`${API_BASE_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // 3. Directly insert data into your Supabase 'messages' table
+      const { data, error } = await supabase
+        .from('messages') 
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            description: formData.description, // Matches database column
+          },
+        ]);
 
-      if (response.ok) {
-        setStatus({ loading: false, success: 'Message sent successfully!', error: null });
-        setFormData({ name: '', email: '', message: '' }); // Clear form
-      } else {
-        throw new Error('Something went wrong. Please try again.');
-      }
+      if (error) throw error;
+
+      setStatus({ loading: false, success: 'Message sent successfully!', error: null });
+      setFormData({ name: '', email: '', description: '' }); // Clear form
+      
     } catch (err) {
-      setStatus({ loading: false, success: null, error: err.message });
+      setStatus({ loading: false, success: null, error: err.message || 'Something went wrong. Please try again.' });
     }
   };
 
@@ -91,12 +91,12 @@ export default function Contactus() {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-slate-200">Message</label>
+              <label htmlFor="description" className="block text-sm font-semibold text-slate-200">Message</label>
               <textarea
-                id="message"
-                name="message"
+                id="description" // 4. Matches state key and database column
+                name="description"
                 rows="5"
-                value={formData.message}
+                value={formData.description}
                 onChange={handleChange}
                 placeholder="Tell us about your project"
                 required
