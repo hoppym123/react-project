@@ -1,5 +1,9 @@
 import completeRoof from '../assets/completeRoof.jpeg';
-import screenshot1 from '../assets/Screenshot 2026-04-28 130941.png';
+import screenshot1 from '../assets/Screenshot 2026-04-28 130941.png'; 
+import wallCotton from '../assets/wallCotton.jpeg';  
+import steprailings from '../assets/steprailings.jpeg';
+import transom2 from '../assets/transom2.jpeg';
+import officepartition from '../assets/officepartition.jpeg';
 
 /**
  * Projects portfolio data configuration
@@ -10,41 +14,41 @@ export const PROJECTS = [
     title: 'Modern Residential Roof',
     description: 'Complete roof installation using gerald stone coated roofing sheets detailing for a contemporary home.',
     image: completeRoof,
-    category: 'Residential',
+    category: 'Residential', 
   },
   {
     id: 2,
     title: 'Commercial Building Aluminum Siding',
     description: 'Full aluminum siding installation for a commercial property, providing durability and modern aesthetics.',
-    image: screenshot1,
+    image: wallCotton,
     category: 'Commercial',
   },
   {
     id: 3,
-    title: 'Historic Home Restoration',
-    description: 'Careful restoration of a historic home\'s roof, preserving architectural integrity while ensuring modern protection.',
-    image: screenshot1,
-    category: 'Restoration',
+    title: 'step railing',
+    description: 'Custom aluminum step railing installation for enhanced safety and aesthetics.',
+    image: steprailings,
+    category: 'railings',
   },
   {
     id: 4,
-    title: 'Aluminum Window Installation',
-    description: 'Custom aluminum window frames and installation for improved energy efficiency and contemporary design.',
-    image: screenshot1,
-    category: 'Windows',
+    title: 'office partition',
+    description: 'Custom aluminum office partitions for improved privacy and space utilization.',
+    image: officepartition,
+    category: 'Partitions',
   },
   {
     id: 5,
-    title: 'Flat Roof System',
-    description: 'Professional installation of a flat roof system with proper drainage and waterproofing for commercial buildings.',
-    image: screenshot1,
-    category: 'Commercial',
+    title: 'transome window',
+    description: 'Custome transome windows for improved natural lighting and ventilation.',
+    image: transom2,
+    category: 'Windows',
   },
   {
     id: 6,
-    title: 'Aluminum Patio Cover',
-    description: 'Custom aluminum patio cover installation providing shade and protection for outdoor living spaces.',
+    title: 'hand railing',
+    description: 'Custom aluminum hand railing installation for enhanced safety and aesthetics.',
     image: screenshot1,
-    category: 'Outdoor',
+    category: 'Hand Railings',
   },
 ];

@@ -2,6 +2,9 @@ import completeRoof from '../assets/completeRoof.jpeg';
 import casementWindow from '../assets/casement window.jpeg';
 import handRailings from '../assets/hand railings.jpeg';
 import duplex1 from '../assets/duplex1.jpg';
+import officepartition from '../assets/officepartition.jpeg';
+import handrailing2 from '../assets/handrailing2.jpeg';
+import hingeDoor2 from '../assets/hingeDoor2.jpeg';
 
 /**
  * Hero carousel slides configuration
@@ -18,11 +21,11 @@ export const HERO_SLIDES = [
   },
   {
     id: 2,
-    title: 'Quality Roof Repairs & Replacements',
-    subtitle: 'Fast response, precise results.',
-    description: 'From leak repair to full replacement, we deliver premium workmanship and long-term peace of mind.',
+    title: 'casement window',
+    subtitle: 'Custom aluminum windows for modern homes.',
+    description: 'Upgrade your home with custom aluminum windows that blend durability with modern design.',
     image: casementWindow,
-    buttonText: 'View Services',
+    buttonText: 'view Gallery',
     buttonPath: '/services',
   },
   {
@@ -31,16 +34,16 @@ export const HERO_SLIDES = [
     subtitle: 'Stylish exteriors that perform.',
     description: 'Upgrade your home with custom aluminum work that enhances beauty and reliability.',
     image: handRailings,
-    buttonText: 'Open Gallery',
+    buttonText: 'view Gallery',
     buttonPath: '/gallery',
   },
   {
     id: 4,
-    title: 'Premium Window Upgrades',
-    subtitle: 'Improve performance and curb appeal.',
-    description: 'Custom aluminum windows that blend durability with modern design.',
-    image: handRailings,
-    buttonText: 'Browse Windows',
+    title: 'office partition',
+    subtitle: 'Custom aluminum partitions for modern offices.',
+    description: 'Upgrade your workspace with custom aluminum partitions that blend durability with modern design.',
+    image: officepartition,
+    buttonText: 'view Gallery',
     buttonPath: '/services',
   },
   {
@@ -49,7 +52,25 @@ export const HERO_SLIDES = [
     subtitle: 'Roofing and aluminum for every property.',
     description: 'Tailored solutions for duplex properties, ensuring both style and functionality.',
     image: duplex1,
-    buttonText: 'Explore Duplex Services',
+    buttonText: 'view Gallery',
+    buttonPath: '/services',
+  },
+  {
+    id: 6,
+    title: 'Complete Duplex Solutions',
+    subtitle: 'aluminum for every property.',
+    description: 'Tailored solutions for duplex properties, ensuring both style and functionality.',
+    image: handrailing2,
+    buttonText: 'view Gallery',
+    buttonPath: '/services',
+  },
+  {
+    id: 7,
+    title: 'openable hinge door',
+    subtitle: 'Custom aluminum doors for modern homes.',
+    description: 'Upgrade your home with custom aluminum doors that blend durability with modern design.',
+    image: hingeDoor2,
+    buttonText: 'view Gallery',
     buttonPath: '/services',
   },
 ];

@@ -17,7 +17,7 @@ export default function Contactus() {
 
     try {
       // 3. Directly insert data into your Supabase 'messages' table
-      const { data, error } = await supabase
+      const {  error } = await supabase
         .from('messages') 
         .insert([
           {
